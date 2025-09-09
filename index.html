@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concurso Indaiatuba — Plataforma de Estudos</title>
+<style>
+:root{
+  --bg:#ffffff; --text:#0f172a; --muted:#475569;
+  --primary:#10b981; --blue:#2563eb; --border:#e2e8f0; --card:#f8fafc;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu}
+header{padding:20px 16px;border-bottom:1px solid var(--border);background:#f9fbff}
+h1{margin:0 0 6px 0;font-size:26px} .sub{color:var(--muted)}
+main{display:grid;grid-template-columns:330px 1fr;gap:16px;padding:16px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+.tabbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tab-btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:white;color:var(--text);cursor:pointer;transition:.2s}
+.tab-btn.active{background:linear-gradient(180deg,#e7f6ff,#eafff5);border-color:#c7f2f0;box-shadow:0 0 0 2px rgba(16,185,129,.15) inset}
+.tab{display:none} .tab.active{display:block}
+.doc{border:1px solid var(--border);border-radius:12px;margin:10px 0;padding:10px;background:white}
+.doc summary{cursor:pointer} .doc-title{font-weight:600}
+.viewer{margin-top:10px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#f3f6fb}
+.viewer-toolbar{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:8px;background:#eef7ff;border-bottom:1px solid var(--border)}
+.btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid var(--primary);background:linear-gradient(180deg,#eafff5,#e7f6ff);color:#064e3b;text-decoration:none;font-weight:600;transition:.15s}
+.btn:hover{filter:brightness(0.98);box-shadow:0 4px 14px rgba(37,99,235,.15)}
+.btn-ghost{border-color:#c7f2f0;background:white;color:#036969}
+.btn-link{padding:6px 10px;border-radius:999px;border:1px solid #c7f2f0;background:white;color:#0b4f4f;text-decoration:none;font-weight:600}
+iframe{width:100%;height:85vh;border:0;background:#fff}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.day{padding:12px;border:1px solid var(--border);border-radius:12px;background:white}
+.day h3{margin:0 0 6px 0;font-size:16px}
+.day ul{margin:0;padding-left:0;list-style:none}
+.task{display:flex;gap:10px;align-items:center}
+.task input[type=checkbox]{transform:scale(1.15)}
+.progress-wrap{margin-top:8px}
+.progress-bar{height:12px;border-radius:999px;background:#eef7ff;overflow:hidden;border:1px solid var(--border)}
+.progress-bar>div{height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--blue));transition:width .3s}
+/* Reader mode */ 
+main.reader-on{grid-template-columns:1fr}
+main.reader-on .schedule-panel{display:none}
+@media(max-width:1000px){main{grid-template-columns:1fr} iframe{height:70vh}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Concurso Indaiatuba — Plataforma de Estudos</h1>
+  <div class="sub">Tema claro • Verde & Azul • PDFs amplos • Simulados com gabarito</div>
+  <div class="toolbar" style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap">
+    <button id="toggleRead" class="btn">🖥️ Modo Leitura</button>
+  </div>
+</header>
+<main>
+  <aside class="panel">
+    <h2>Disciplinas</h2>
+    <div class="tabbar"><button class="tab-btn active" data-tab="tab-portugues">Português</button><button class="tab-btn" data-tab="tab-raciocinio-logico-e-matematica">Raciocínio Lógico e Matemática</button><button class="tab-btn" data-tab="tab-administracao-publica-e-legislacao-correlata">Administração Pública e Legislação Correlata</button><button class="tab-btn" data-tab="tab-legislacao-municipal">Legislação Municipal</button><button class="tab-btn" data-tab="tab-conhecimentos-especificos-ti">Conhecimentos Específicos (TI)</button><button class="tab-btn" data-tab="tab-simulados">Simulados & Exercícios</button></div>
+    <div id="tabs"><section id="tab-portugues" class="tab active">
+        <details class="doc" id="topic-portugues-01-compreensao-e-interpretacao-de-texto">
+          <summary><span class="doc-title">01 Compreensão e Interpretação de Texto</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-01-compreensao-e-interpretacao-de-texto">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/01 Compreensão e Interpretação de Texto.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/01 Compreensão e Interpretação de Texto.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-02-denotacao-e-conotacao">
+          <summary><span class="doc-title">02 Denotação e Conotação</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-02-denotacao-e-conotacao">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/02 Denotação e Conotação.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/02 Denotação e Conotação.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-03-figuras-de-linguagem">
+          <summary><span class="doc-title">03 Figuras de Linguagem</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-03-figuras-de-linguagem">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/03 Figuras de Linguagem.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/03 Figuras de Linguagem.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-04-coesao-e-coerencia">
+          <summary><span class="doc-title">04 Coesão e Coerência</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-04-coesao-e-coerencia">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/04 Coesão e Coerência.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/04 Coesão e Coerência.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-05-tipologias-e-generos-textuais">
+          <summary><span class="doc-title">05 Tipologias e Generos Textuais</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-05-tipologias-e-generos-textuais">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/05 Tipologias e Generos Textuais.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/05 Tipologias e Generos Textuais.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-06-significado-de-palavras">
+          <summary><span class="doc-title">06 Significado de Palavras</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-06-significado-de-palavras">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/06 Significado de Palavras.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/06 Significado de Palavras.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-07-classes-de-palavras">
+          <summary><span class="doc-title">07 Classes de Palavras</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-07-classes-de-palavras">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/07 Classes de Palavras.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/07 Classes de Palavras.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-08-sintaxe">
+          <summary><span class="doc-title">08 Sintaxe</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-08-sintaxe">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/08 Sintaxe.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/08 Sintaxe.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-09-pontuacao">
+          <summary><span class="doc-title">09 Pontuação</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-09-pontuacao">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/09 Pontuação.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/09 Pontuação.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-10-concordancia-nominal-e-verbal">
+          <summary><span class="doc-title">10 Concordância Nominal e Verbal</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-10-concordancia-nominal-e-verbal">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/10 Concordância Nominal e Verbal.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/10 Concordância Nominal e Verbal.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-11-regencia-verbal-e-nominal">
+          <summary><span class="doc-title">11 Regência Verbal e Nominal</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-11-regencia-verbal-e-nominal">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/11 Regência Verbal e Nominal.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/11 Regência Verbal e Nominal.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-12-crase">
+          <summary><span class="doc-title">12 Crase</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-12-crase">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/12 Crase.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/12 Crase.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-13-semantica">
+          <summary><span class="doc-title">13 Semântica</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-13-semantica">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/13 Semântica.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/13 Semântica.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-portugues-14-estilistica">
+          <summary><span class="doc-title">14 Estilística</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Português</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-portugues-14-estilistica">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/01 Língua Portuguesa/14 Estilística.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/01 Língua Portuguesa/14 Estilística.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        </section><section id="tab-raciocinio-logico-e-matematica" class="tab">
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-01-principio-da-reversao-ou-regressao">
+          <summary><span class="doc-title">01 Princípio da Reversão ou Regressão</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-01-principio-da-reversao-ou-regressao">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/01 Princípio da Reversão ou Regressão.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/01 Princípio da Reversão ou Regressão.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-02-raciocinio-logico-sequencial">
+          <summary><span class="doc-title">02 Raciocínio Lógico Sequencial</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-02-raciocinio-logico-sequencial">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/02 Raciocínio Lógico Sequencial.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/02 Raciocínio Lógico Sequencial.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-03-logica-matematica">
+          <summary><span class="doc-title">03 Lógica Matematica</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-03-logica-matematica">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/03 Lógica Matematica.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/03 Lógica Matematica.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-04-regras-de-tres-simples-e-compostas">
+          <summary><span class="doc-title">04 Regras de Três Simples e Compostas</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-04-regras-de-tres-simples-e-compostas">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/04 Regras de Três Simples e Compostas.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/04 Regras de Três Simples e Compostas.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-05-razoes-e-proporcoes">
+          <summary><span class="doc-title">05 Razões e Proporções</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-05-razoes-e-proporcoes">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/05 Razões e Proporções.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/05 Razões e Proporções.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-06-analise-combinatoria">
+          <summary><span class="doc-title">06 Análise Combinatória</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-06-analise-combinatoria">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/06 Análise Combinatória.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/06 Análise Combinatória.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-07-probabilidade">
+          <summary><span class="doc-title">07 Probabilidade</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-07-probabilidade">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/07 Probabilidade.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/07 Probabilidade.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-08-progressoes-aritmeticas-e-geometricas">
+          <summary><span class="doc-title">08 Progressões Aritméticas e Geométricas</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-08-progressoes-aritmeticas-e-geometricas">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/08 Progressões Aritméticas e Geométricas.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/08 Progressões Aritméticas e Geométricas.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-09-conjuntos">
+          <summary><span class="doc-title">09 Conjuntos</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-09-conjuntos">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/09 Conjuntos.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/09 Conjuntos.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-10-geometria-plana-e-especial">
+          <summary><span class="doc-title">10 Geometria Plana e Especial</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-10-geometria-plana-e-especial">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/10 Geometria Plana e Especial.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/10 Geometria Plana e Especial.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-11-trigonometria">
+          <summary><span class="doc-title">11 Trigonometria</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-11-trigonometria">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/11 Trigonometria.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/11 Trigonometria.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-12-conjuntos-numericos">
+          <summary><span class="doc-title">12 Conjuntos Numéricos</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-12-conjuntos-numericos">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/12 Conjuntos Numéricos.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/12 Conjuntos Numéricos.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-13-equacoes-e-inequacoes-de-1o-e-de-2o-graus">
+          <summary><span class="doc-title">13 Equações e Inequações de 1º e de 2º Graus</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-13-equacoes-e-inequacoes-de-1o-e-de-2o-graus">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/13 Equações e Inequações de 1º e de 2º Graus.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/13 Equações e Inequações de 1º e de 2º Graus.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-14-geometria-analitica">
+          <summary><span class="doc-title">14 Geometria Analitica</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-14-geometria-analitica">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/14 Geometria Analitica.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/14 Geometria Analitica.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-15-vetores-matrizes-e-determinantes">
+          <summary><span class="doc-title">15 Vetores, Matrizes e Determinantes</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-15-vetores-matrizes-e-determinantes">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/15 Vetores, Matrizes e Determinantes.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/15 Vetores, Matrizes e Determinantes.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-16-sistemas-lineares">
+          <summary><span class="doc-title">16 Sistemas Lineares</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-16-sistemas-lineares">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/16 Sistemas Lineares.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/16 Sistemas Lineares.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-raciocinio-logico-e-matematica-17-polinomios">
+          <summary><span class="doc-title">17 Polinomios</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Raciocínio Lógico e Matemática</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-raciocinio-logico-e-matematica-17-polinomios">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/02 Raciocínio Lógico e Matemático/17 Polinomios.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/02 Raciocínio Lógico e Matemático/17 Polinomios.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        </section><section id="tab-administracao-publica-e-legislacao-correlata" class="tab">
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-01-dos-principios-fundamentais">
+          <summary><span class="doc-title">01 Dos Princípios Fundamentais</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-01-dos-principios-fundamentais">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/01 Dos Princípios Fundamentais.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/01 Dos Princípios Fundamentais.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-02-direitos-e-garantias-fundamentais">
+          <summary><span class="doc-title">02 Direitos e Garantias Fundamentais</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-02-direitos-e-garantias-fundamentais">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/02 Direitos e Garantias Fundamentais.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/02 Direitos e Garantias Fundamentais.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-03-direitos-sociais">
+          <summary><span class="doc-title">03 Direitos Sociais</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-03-direitos-sociais">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/03 Direitos Sociais.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/03 Direitos Sociais.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-04-organizacao-do-estado">
+          <summary><span class="doc-title">04 Organização do Estado</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-04-organizacao-do-estado">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/04 Organização do Estado.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/04 Organização do Estado.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-05-da-administracao-publica">
+          <summary><span class="doc-title">05 Da Administração Pública</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-05-da-administracao-publica">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/05 Da Administração Pública.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/05 Da Administração Pública.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-06-organizacao-dos-poderes">
+          <summary><span class="doc-title">06 Organização dos Poderes</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-06-organizacao-dos-poderes">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/06 Organização dos Poderes.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/06 Organização dos Poderes.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-07-da-ordem-social">
+          <summary><span class="doc-title">07 Da Ordem Social</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-07-da-ordem-social">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/07 Da Ordem Social.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/07 Da Ordem Social.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-08-organizacao-administrativa">
+          <summary><span class="doc-title">08 Organização Administrativa</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-08-organizacao-administrativa">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/08 Organização Administrativa.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/08 Organização Administrativa.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-09-centralizacao-e-descentralizacao">
+          <summary><span class="doc-title">09 Centralização e Descentralização</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-09-centralizacao-e-descentralizacao">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/09 Centralização e Descentralização.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/09 Centralização e Descentralização.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-10-autarquias-fundacoes-publicas">
+          <summary><span class="doc-title">10 Autarquias, Fundações Públicas</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-10-autarquias-fundacoes-publicas">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/10 Autarquias, Fundações Públicas.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/10 Autarquias, Fundações Públicas.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-11-empresa-publica-x-sociedade-de-economia-mista">
+          <summary><span class="doc-title">11 Empresa Pública x Sociedade de Economia Mista</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-11-empresa-publica-x-sociedade-de-economia-mista">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/11 Empresa Pública x Sociedade de Economia Mista.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/11 Empresa Pública x Sociedade de Economia Mista.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-12-lei-no-8-429-de-2-de-junho-de-1992">
+          <summary><span class="doc-title">12 LEI Nº 8.429, DE 2 DE JUNHO DE 1992.</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-12-lei-no-8-429-de-2-de-junho-de-1992">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/12 LEI Nº 8.429, DE 2 DE JUNHO DE 1992..pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/12 LEI Nº 8.429, DE 2 DE JUNHO DE 1992..pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-13-lei-no-14-133-de-1o-de-abril-de-2021">
+          <summary><span class="doc-title">13 Lei nº 14.133, de 1º de Abril de 2021</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-13-lei-no-14-133-de-1o-de-abril-de-2021">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/13 Lei nº 14.133, de 1º de Abril de 2021.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/13 Lei nº 14.133, de 1º de Abril de 2021.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-14-lei-no-9-784-de-29-de-janeiro-de-1999">
+          <summary><span class="doc-title">14 LEI Nº 9.784 , DE 29 DE JANEIRO DE 1999.</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-14-lei-no-9-784-de-29-de-janeiro-de-1999">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/14 LEI Nº 9.784 , DE 29 DE JANEIRO DE 1999..pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/14 LEI Nº 9.784 , DE 29 DE JANEIRO DE 1999..pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-15-lei-no-12-527-de-18-de-novembro-de-2011">
+          <summary><span class="doc-title">15 LEI Nº 12.527, DE 18 DE NOVEMBRO DE 2011.</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-15-lei-no-12-527-de-18-de-novembro-de-2011">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/15 LEI Nº 12.527, DE 18 DE NOVEMBRO DE 2011..pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/15 LEI Nº 12.527, DE 18 DE NOVEMBRO DE 2011..pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-administracao-publica-e-legislacao-correlata-16-lei-no-13-709-de-14-de-agosto-de-2018">
+          <summary><span class="doc-title">16 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018.</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Administração Pública e Legislação Correlata</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-administracao-publica-e-legislacao-correlata-16-lei-no-13-709-de-14-de-agosto-de-2018">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/16 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018..pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/03 Conhecimentos de Administração Pública e Legislação Correlata/16 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018..pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        </section><section id="tab-legislacao-municipal" class="tab">
+        <details class="doc" id="topic-legislacao-municipal-01-lei-organica-do-municipio-de-indaiatuba">
+          <summary><span class="doc-title">01 Lei Orgânica do Município de Indaiatuba</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Legislação Municipal</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-legislacao-municipal-01-lei-organica-do-municipio-de-indaiatuba">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/04 Legislação/01 Lei Orgânica do Município de Indaiatuba.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/04 Legislação/01 Lei Orgânica do Município de Indaiatuba.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-legislacao-municipal-02-lei-complementar-no-45-de-20-de-dezembro-de-2018">
+          <summary><span class="doc-title">02 LEI COMPLEMENTAR Nº 45, DE 20 DE DEZEMBRO DE 2018</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Legislação Municipal</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-legislacao-municipal-02-lei-complementar-no-45-de-20-de-dezembro-de-2018">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/04 Legislação/02 LEI COMPLEMENTAR Nº 45, DE 20 DE DEZEMBRO DE 2018.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/04 Legislação/02 LEI COMPLEMENTAR Nº 45, DE 20 DE DEZEMBRO DE 2018.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-legislacao-municipal-03-lei-complementar-no-47-de-20-de-dezembro-de-2018">
+          <summary><span class="doc-title">03 Lei Complementar nº 47, de 20 de dezembro de 2018</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Legislação Municipal</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-legislacao-municipal-03-lei-complementar-no-47-de-20-de-dezembro-de-2018">🔲 Tela Cheia</button>
+                <a class="btn" href="basico/04 Legislação/03 Lei Complementar nº 47, de 20 de dezembro de 2018.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="basico/04 Legislação/03 Lei Complementar nº 47, de 20 de dezembro de 2018.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        </section><section id="tab-conhecimentos-especificos-ti" class="tab">
+        <details class="doc" id="topic-conhecimentos-especificos-ti-01-fundamento-e-historia-de-computadores-e-hardware">
+          <summary><span class="doc-title">01 Fundamento e História De Computadores e Hardware</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-01-fundamento-e-historia-de-computadores-e-hardware">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/01 Fundamento e História De Computadores e Hardware.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/01 Fundamento e História De Computadores e Hardware.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-02-instalacao-configuracao-e-atualizacao-das-versoes-desktop">
+          <summary><span class="doc-title">02 Instalação Configuração e Atualização das Versões Desktop</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-02-instalacao-configuracao-e-atualizacao-das-versoes-desktop">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/02 Instalação Configuração e Atualização das Versões Desktop.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/02 Instalação Configuração e Atualização das Versões Desktop.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-03-placa-mae">
+          <summary><span class="doc-title">03 Placa Mãe</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-03-placa-mae">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/03 Placa Mãe.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/03 Placa Mãe.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-04-barramentos">
+          <summary><span class="doc-title">04 Barramentos</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-04-barramentos">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/04 Barramentos.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/04 Barramentos.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-05-fonte-de-alimentacao-filtros-de-linha-estabilizadores-e-nobreaks">
+          <summary><span class="doc-title">05 Fonte de Alimentação, Filtros de Linha, Estabilizadores e Nobreaks</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-05-fonte-de-alimentacao-filtros-de-linha-estabilizadores-e-nobreaks">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/05 Fonte de Alimentação, Filtros de Linha, Estabilizadores e Nobreaks.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/05 Fonte de Alimentação, Filtros de Linha, Estabilizadores e Nobreaks.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-06-unidade-de-disco-rigido">
+          <summary><span class="doc-title">06 Unidade de Disco Rígido</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-06-unidade-de-disco-rigido">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/06 Unidade de Disco Rígido.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/06 Unidade de Disco Rígido.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-07-sistema-de-arquivos">
+          <summary><span class="doc-title">07 Sistema de Arquivos</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-07-sistema-de-arquivos">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/07 Sistema de Arquivos.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/07 Sistema de Arquivos.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-08-interfaces-e-dispositivos-de-entrada-e-saida">
+          <summary><span class="doc-title">08 Interfaces E Dispositivos De Entrada E Saída</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-08-interfaces-e-dispositivos-de-entrada-e-saida">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/08 Interfaces E Dispositivos De Entrada E Saída.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/08 Interfaces E Dispositivos De Entrada E Saída.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-09-rom-ram">
+          <summary><span class="doc-title">09 ROM, RAM</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-09-rom-ram">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/09 ROM, RAM.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/09 ROM, RAM.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-10-processador">
+          <summary><span class="doc-title">10 Processador</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-10-processador">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/10 Processador.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/10 Processador.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-11-placas-e-monitores-de-video">
+          <summary><span class="doc-title">11 Placas e Monitores de Vídeo</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-11-placas-e-monitores-de-video">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/11 Placas e Monitores de Vídeo.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/11 Placas e Monitores de Vídeo.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-12-montagem-e-manutencao-de-computadores">
+          <summary><span class="doc-title">12 Montagem e Manutenção de Computadores</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-12-montagem-e-manutencao-de-computadores">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/12 Montagem e Manutenção de Computadores.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/12 Montagem e Manutenção de Computadores.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-13-formatacao-de-dados">
+          <summary><span class="doc-title">13 Formatação de Dados</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-13-formatacao-de-dados">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/13 Formatação de Dados.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/13 Formatação de Dados.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-14-microsoft-windows-7">
+          <summary><span class="doc-title">14 Microsoft Windows 7</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-14-microsoft-windows-7">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/14 Microsoft Windows 7.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/14 Microsoft Windows 7.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-15-ms-windows-10">
+          <summary><span class="doc-title">15 MS-Windows 10</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-15-ms-windows-10">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/15 MS-Windows 10.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/15 MS-Windows 10.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-16-outlook">
+          <summary><span class="doc-title">16 Outlook</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-16-outlook">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/16 Outlook.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/16 Outlook.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-17-microsoft-office">
+          <summary><span class="doc-title">17 Microsoft Office</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-17-microsoft-office">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/17 Microsoft Office.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/17 Microsoft Office.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-18-linguagens-de-script-bat">
+          <summary><span class="doc-title">18 Linguagens de Script (BAT)</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-18-linguagens-de-script-bat">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/18 Linguagens de Script (BAT).pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/18 Linguagens de Script (BAT).pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-19-sistemas-operacionais-linux-ubuntu">
+          <summary><span class="doc-title">19 Sistemas Operacionais Linux Ubuntu</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-19-sistemas-operacionais-linux-ubuntu">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/19 Sistemas Operacionais Linux Ubuntu.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/19 Sistemas Operacionais Linux Ubuntu.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-20-lei-no-12-965-de-23-de-abril-de-2014">
+          <summary><span class="doc-title">20 Lei nº 12.965, de 23 de abril de 2014</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-20-lei-no-12-965-de-23-de-abril-de-2014">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/20 Lei nº 12.965, de 23 de abril de 2014.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/20 Lei nº 12.965, de 23 de abril de 2014.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        
+
+        <details class="doc" id="topic-conhecimentos-especificos-ti-21-lei-no-13-709-de-14-de-agosto-de-2018">
+          <summary><span class="doc-title">21 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018</span></summary>
+          <div class="viewer">
+            <div class="viewer-toolbar" style="display:flex;justify-content:space-between;align-items:center">
+              <div class="sub">Conhecimentos Específicos (TI)</div>
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost fs-btn" data-target="topic-conhecimentos-especificos-ti-21-lei-no-13-709-de-14-de-agosto-de-2018">🔲 Tela Cheia</button>
+                <a class="btn" href="ti/21 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018.pdf" target="_blank">↗️ Abrir em nova aba</a>
+              </div>
+            </div>
+            <iframe src="ti/21 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018.pdf" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+          </div>
+        </details>
+        </section>
+<section id="tab-simulados" class="tab">
+  <div class="doc">
+    <summary><span class="doc-title">Simulado de Provas Anteriores</span></summary>
+    <div class="viewer" style="margin-top:8px">
+      <div class="viewer-toolbar" style="justify-content:space-between">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <label>Prova:
+            <select id="simProva" class="btn btn-ghost" style="padding:6px 10px">
+              <option value="2013">2013</option>
+              <option value="2015">2015</option>
+              <option value="2018">2018</option>
+            </select>
+          </label>
+          <label>Qtd. questões:
+            <input id="simQtd" type="number" min="5" max="200" value="40" class="btn btn-ghost" style="width:80px">
+          </label>
+          <label>Valor por acerto:
+            <input id="simValor" type="number" step="0.1" value="1" class="btn btn-ghost" style="width:80px">
+          </label>
+          <label>Penalidade por erro:
+            <input id="simPen" type="number" step="0.1" value="0" class="btn btn-ghost" style="width:80px">
+          </label>
+          <button id="simGerar" class="btn">Gerar simulado</button>
+          <button id="simCorrigir" class="btn btn-ghost">Corrigir</button>
+          <button id="simLimpar" class="btn btn-ghost">Limpar</button>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input id="simFS" type="checkbox"><label for="simFS" class="btn btn-ghost">Tela Cheia</label>
+          <a class="btn" id="simAbrirPDF" href="#" target="_blank">↗️ Abrir prova</a>
+        </div>
+      </div>
+      <div id="simWrap" style="display:grid;grid-template-columns:1.6fr 1fr;gap:10px;min-height:60vh">
+        <div id="simPDF" style="border-right:1px solid var(--border)">
+          <iframe id="simIframe" src="" allow="fullscreen" loading="lazy" style="height:85vh"></iframe>
+        </div>
+        <div id="simQuiz" style="padding:8px;overflow:auto">
+          <div id="quizContainer"></div>
+          <div id="simResultado" style="margin-top:10px"></div>
+          <div style="padding:8px;border-top:1px dashed var(--border);background:#f7fbff;margin-top:10px">
+            <details id="gabManualWrap" class="doc" style="margin:6px 0">
+              <summary><strong>Gabarito (colar manualmente, se necessário)</strong></summary>
+              <div style="padding:6px 8px">
+                <p>Formato: uma linha por questão (ex.: <code>1 A</code>, <code>2 C</code> ...). Salva no seu navegador.</p>
+                <textarea id="simGabManual" rows="5" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:8px" placeholder="1 A&#10;2 C&#10;3 B&#10;..."></textarea>
+                <div style="display:flex;gap:8px;margin-top:8px">
+                  <button id="simAplicarGabManual" class="btn btn-ghost">Aplicar gabarito</button>
+                  <button id="simExemploGabManual" class="btn btn-ghost">Exemplo</button>
+                  <span id="simStatusGab" class="sub"></span>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+    <hr style="border-color:var(--border);margin:12px 0">
+    <h3>Progresso do Cronograma</h3>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressInner"></div></div>
+      <div id="progressText" class="sub" style="margin-top:6px">0% concluído</div>
+    </div>
+    <button id="reset" class="btn btn-ghost" style="margin-top:8px;width:100%">Zerar marcações</button>
+  </aside>
+  <section class="panel schedule-panel">
+    <h2>Cronograma</h2>
+    <div class="grid"><div class="day"><h3>Mon • 08/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-08-1"><a class="btn btn-link" href="#topic-portugues-01-compreensao-e-interpretacao-de-texto">Português — 01 Compreensão e Interpretação de Texto (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-08-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-01-principio-da-reversao-ou-regressao">Raciocínio Lógico — 01 Princípio da Reversão ou Regressão (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 09/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-09-1"><a class="btn btn-link" href="#topic-portugues-02-denotacao-e-conotacao">Português — 02 Denotação e Conotação (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-09-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-02-raciocinio-logico-sequencial">Raciocínio Lógico — 02 Raciocínio Lógico Sequencial (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 10/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-10-1"><a class="btn btn-link" href="#topic-portugues-03-figuras-de-linguagem">Português — 03 Figuras de Linguagem (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-10-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-03-logica-matematica">Raciocínio Lógico — 03 Lógica Matematica (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 11/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-11-1"><a class="btn btn-link" href="#topic-portugues-04-coesao-e-coerencia">Português — 04 Coesão e Coerência (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-11-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-04-regras-de-tres-simples-e-compostas">Raciocínio Lógico — 04 Regras de Três Simples e Compostas (60 min)</a></label></li></ul></div><div class="day"><h3>Fri • 12/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-12-1"><a class="btn btn-link" href="#topic-portugues-05-tipologias-e-generos-textuais">Português — 05 Tipologias e Generos Textuais (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-12-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-05-razoes-e-proporcoes">Raciocínio Lógico — 05 Razões e Proporções (60 min)</a></label></li></ul></div><div class="day"><h3>Sat • 13/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-13-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-01-fundamento-e-historia-de-computadores-e-hardware">TI — 01 Fundamento e História De Computadores e Hardware (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-13-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-02-instalacao-configuracao-e-atualizacao-das-versoes-desktop">TI — 02 Instalação Configuração e Atualização das Versões Desktop (60 min)</a></label></li></ul></div><div class="day"><h3>Sun • 14/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-14-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-03-placa-mae">TI — 03 Placa Mãe (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-14-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-04-barramentos">TI — 04 Barramentos (60 min)</a></label></li></ul></div><div class="day"><h3>Mon • 15/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-15-1"><a class="btn btn-link" href="#topic-portugues-06-significado-de-palavras">Português — 06 Significado de Palavras (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-15-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-06-analise-combinatoria">Raciocínio Lógico — 06 Análise Combinatória (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 16/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-16-1"><a class="btn btn-link" href="#topic-portugues-07-classes-de-palavras">Português — 07 Classes de Palavras (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-16-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-07-probabilidade">Raciocínio Lógico — 07 Probabilidade (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 17/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-17-1"><a class="btn btn-link" href="#topic-portugues-08-sintaxe">Português — 08 Sintaxe (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-17-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-08-progressoes-aritmeticas-e-geometricas">Raciocínio Lógico — 08 Progressões Aritméticas e Geométricas (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 18/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-18-1"><a class="btn btn-link" href="#topic-portugues-09-pontuacao">Português — 09 Pontuação (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-18-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-09-conjuntos">Raciocínio Lógico — 09 Conjuntos (60 min)</a></label></li></ul></div><div class="day"><h3>Fri • 19/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-19-1"><a class="btn btn-link" href="#topic-portugues-10-concordancia-nominal-e-verbal">Português — 10 Concordância Nominal e Verbal (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-19-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-10-geometria-plana-e-especial">Raciocínio Lógico — 10 Geometria Plana e Especial (60 min)</a></label></li></ul></div><div class="day"><h3>Sat • 20/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-20-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-05-fonte-de-alimentacao-filtros-de-linha-estabilizadores-e-nobreaks">TI — 05 Fonte de Alimentação, Filtros de Linha, Estabilizadores e Nobreaks (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-20-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-06-unidade-de-disco-rigido">TI — 06 Unidade de Disco Rígido (60 min)</a></label></li></ul></div><div class="day"><h3>Sun • 21/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-21-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-07-sistema-de-arquivos">TI — 07 Sistema de Arquivos (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-21-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-08-interfaces-e-dispositivos-de-entrada-e-saida">TI — 08 Interfaces E Dispositivos De Entrada E Saída (60 min)</a></label></li></ul></div><div class="day"><h3>Mon • 22/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-22-1"><a class="btn btn-link" href="#topic-portugues-11-regencia-verbal-e-nominal">Português — 11 Regência Verbal e Nominal (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-22-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-11-trigonometria">Raciocínio Lógico — 11 Trigonometria (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 23/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-23-1"><a class="btn btn-link" href="#topic-portugues-12-crase">Português — 12 Crase (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-23-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-12-conjuntos-numericos">Raciocínio Lógico — 12 Conjuntos Numéricos (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 24/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-24-1"><a class="btn btn-link" href="#topic-portugues-13-semantica">Português — 13 Semântica (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-24-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-13-equacoes-e-inequacoes-de-1o-e-de-2o-graus">Raciocínio Lógico — 13 Equações e Inequações de 1º e de 2º Graus (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 25/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-25-1"><a class="btn btn-link" href="#topic-portugues-14-estilistica">Português — 14 Estilística (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-25-2"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-14-geometria-analitica">Raciocínio Lógico — 14 Geometria Analitica (60 min)</a></label></li></ul></div><div class="day"><h3>Fri • 26/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-26-1"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-15-vetores-matrizes-e-determinantes">Raciocínio Lógico — 15 Vetores, Matrizes e Determinantes (60 min)</a></label></li></ul></div><div class="day"><h3>Sat • 27/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-27-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-09-rom-ram">TI — 09 ROM, RAM (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-27-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-10-processador">TI — 10 Processador (60 min)</a></label></li></ul></div><div class="day"><h3>Sun • 28/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-28-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-11-placas-e-monitores-de-video">TI — 11 Placas e Monitores de Vídeo (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-09-28-2"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-12-montagem-e-manutencao-de-computadores">TI — 12 Montagem e Manutenção de Computadores (60 min)</a></label></li></ul></div><div class="day"><h3>Mon • 29/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-29-1"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-16-sistemas-lineares">Raciocínio Lógico — 16 Sistemas Lineares (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 30/09</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-09-30-1"><a class="btn btn-link" href="#topic-raciocinio-logico-e-matematica-17-polinomios">Raciocínio Lógico — 17 Polinomios (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 01/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-01-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-13-formatacao-de-dados">TI — 13 Formatação de Dados (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-01-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-01-dos-principios-fundamentais">Administração Pública e Legislação Correlata — 01 Dos Princípios Fundamentais (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 02/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-02-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-14-microsoft-windows-7">TI — 14 Microsoft Windows 7 (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-02-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-02-direitos-e-garantias-fundamentais">Administração Pública e Legislação Correlata — 02 Direitos e Garantias Fundamentais (60 min)</a></label></li></ul></div><div class="day"><h3>Fri • 03/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-03-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-15-ms-windows-10">TI — 15 MS-Windows 10 (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-03-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-03-direitos-sociais">Administração Pública e Legislação Correlata — 03 Direitos Sociais (60 min)</a></label></li></ul></div><div class="day"><h3>Sat • 04/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-04-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-16-outlook">TI — 16 Outlook (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-04-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-04-organizacao-do-estado">Administração Pública e Legislação Correlata — 04 Organização do Estado (60 min)</a></label></li></ul></div><div class="day"><h3>Sun • 05/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-05-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-17-microsoft-office">TI — 17 Microsoft Office (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-05-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-05-da-administracao-publica">Administração Pública e Legislação Correlata — 05 Da Administração Pública (60 min)</a></label></li></ul></div><div class="day"><h3>Mon • 06/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-06-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-18-linguagens-de-script-bat">TI — 18 Linguagens de Script (BAT) (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-06-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-06-organizacao-dos-poderes">Administração Pública e Legislação Correlata — 06 Organização dos Poderes (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 07/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-07-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-19-sistemas-operacionais-linux-ubuntu">TI — 19 Sistemas Operacionais Linux Ubuntu (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-07-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-07-da-ordem-social">Administração Pública e Legislação Correlata — 07 Da Ordem Social (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 08/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-08-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-20-lei-no-12-965-de-23-de-abril-de-2014">TI — 20 Lei nº 12.965, de 23 de abril de 2014 (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-08-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-08-organizacao-administrativa">Administração Pública e Legislação Correlata — 08 Organização Administrativa (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 09/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-09-1"><a class="btn btn-link" href="#topic-conhecimentos-especificos-ti-21-lei-no-13-709-de-14-de-agosto-de-2018">TI — 21 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018 (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-09-2"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-09-centralizacao-e-descentralizacao">Administração Pública e Legislação Correlata — 09 Centralização e Descentralização (60 min)</a></label></li></ul></div><div class="day"><h3>Fri • 10/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-10-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-10-autarquias-fundacoes-publicas">Administração Pública e Legislação Correlata — 10 Autarquias, Fundações Públicas (60 min)</a></label></li></ul></div><div class="day"><h3>Sat • 11/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-11-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-11-empresa-publica-x-sociedade-de-economia-mista">Administração Pública e Legislação Correlata — 11 Empresa Pública x Sociedade de Economia Mista (60 min)</a></label></li></ul></div><div class="day"><h3>Sun • 12/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-12-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-12-lei-no-8-429-de-2-de-junho-de-1992">Administração Pública e Legislação Correlata — 12 LEI Nº 8.429, DE 2 DE JUNHO DE 1992. (60 min)</a></label></li></ul></div><div class="day"><h3>Mon • 13/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-13-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-13-lei-no-14-133-de-1o-de-abril-de-2021">Administração Pública e Legislação Correlata — 13 Lei nº 14.133, de 1º de Abril de 2021 (60 min)</a></label></li></ul></div><div class="day"><h3>Tue • 14/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-14-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-14-lei-no-9-784-de-29-de-janeiro-de-1999">Administração Pública e Legislação Correlata — 14 LEI Nº 9.784 , DE 29 DE JANEIRO DE 1999. (60 min)</a></label></li></ul></div><div class="day"><h3>Wed • 15/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-15-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-15-lei-no-12-527-de-18-de-novembro-de-2011">Administração Pública e Legislação Correlata — 15 LEI Nº 12.527, DE 18 DE NOVEMBRO DE 2011. (60 min)</a></label></li></ul></div><div class="day"><h3>Thu • 16/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-16-1"><a class="btn btn-link" href="#topic-administracao-publica-e-legislacao-correlata-16-lei-no-13-709-de-14-de-agosto-de-2018">Revisão Direcionada — 16 LEI Nº 13.709, DE 14 DE AGOSTO DE 2018. (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-16-2"><span>Bloco de 40 questões mistas (60 min)</span></label></li></ul></div><div class="day"><h3>Fri • 17/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-17-1"><a class="btn btn-link" href="#topic-legislacao-municipal-01-lei-organica-do-municipio-de-indaiatuba">Revisão Direcionada — 01 Lei Orgânica do Município de Indaiatuba (60 min)</a></label></li><li><label class="task"><input type="checkbox" data-key="2025-10-17-2"><span>Bloco de 40 questões mistas (60 min)</span></label></li></ul></div><div class="day"><h3>Sat • 18/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-18-1"><a class="btn btn-link" href="provas/Prova 2013 - espec_tecnol_informacao.pdf" target="_blank">Simulado — Prova 2013 (2h)</a></label></li></ul></div><div class="day"><h3>Sun • 19/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-19-1"><a class="btn btn-link" href="provas/Prova 2015 - 3_07_especialista_de_tecnologia_da_informacao.pdf" target="_blank">Simulado — Prova 2015 (2h)</a></label></li></ul></div><div class="day"><h3>Mon • 20/10</h3><ul><li><label class="task"><input type="checkbox" data-key="2025-10-20-1"><a class="btn btn-link" href="provas/Prova 2018 - especialista_em_tecnologia_da_informacao.pdf" target="_blank">Simulado — Prova 2018 (2h)</a></label></li></ul></div></div>
+  </section>
+</main>
+<footer class="sub" style="padding:12px;text-align:center">Versão reconstruída com gabaritos 2013/2015/2018 embutidos ✅</footer>
+<script id="gabaritos-data" type="application/json">{"gabaritos": {"2013": {"1": "A", "2": "A", "3": "D", "4": "C", "5": "D", "6": "A", "7": "D", "8": "B", "9": "D", "10": "A", "11": "D", "12": "B", "13": "D", "14": "B", "15": "D", "16": "D", "17": "A", "18": "B", "19": "B", "20": "A", "21": "D", "22": "B", "23": "D", "24": "C", "25": "D", "26": "D", "27": "B", "28": "B", "29": "C", "30": "D", "31": "D", "32": "C", "33": "C", "34": "B", "35": "D", "36": "D", "37": "D", "38": "D", "39": "A", "40": "D"}, "2015": {"1": "B", "2": "C", "3": "B", "4": "D", "5": "D", "6": "A", "7": "B", "8": "D", "9": "A", "10": "B", "11": "C", "12": "A", "13": "D", "14": "B", "15": "D", "16": "B", "17": "D", "18": "B", "19": "A", "20": "D", "21": "A", "22": "D", "23": "D", "24": "B", "25": "B", "26": "A", "27": "D", "28": "B", "29": "A", "30": "C", "31": "A", "32": "C", "33": "D", "34": "D", "35": "D", "36": "C", "37": "D", "38": "C", "39": "C", "40": "A"}, "2018": {"1": "B", "2": "C", "3": "C", "4": "A", "5": "D", "6": "D", "7": "C", "8": "B", "9": "A", "10": "B", "11": "D", "12": "C", "13": "C", "14": "A", "15": "B", "16": "D", "17": "D", "18": "C", "19": "B", "20": "A", "21": "C", "22": "B", "23": "A", "24": "D", "25": "D", "26": "C", "27": "A", "28": "B", "29": "A", "30": "D", "31": "C", "32": "A", "33": "B", "34": "D", "35": "A", "36": "C", "37": "B", "38": "B", "39": "D", "40": "C"}}, "provas": {"2013": "provas/Prova 2013 - espec_tecnol_informacao.pdf", "2015": "provas/Prova 2015 - 3_07_especialista_de_tecnologia_da_informacao.pdf", "2018": "provas/Prova 2018 - especialista_em_tecnologia_da_informacao.pdf"}}</script>
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+// Anchor navigation
+function openAnchor(anchor){
+  var el = document.querySelector(anchor); if(!el) return;
+  var parent = el.closest('.tab'); if(parent && !parent.classList.contains('active')){
+    var id = parent.id; var button = Array.from(document.querySelectorAll('.tab-btn')).find(function(b){ return b.dataset.tab===id; });
+    if(button) button.click();
+  }
+  el.open = true; setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+}
+if(location.hash.startsWith('#topic-')) openAnchor(location.hash);
+window.addEventListener('hashchange', function(){ if(location.hash.startsWith('#topic-')) openAnchor(location.hash); });
+
+// Fullscreen for embedded viewers
+function requestFs(el){
+  if(el.requestFullscreen) el.requestFullscreen();
+  else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  else if(el.msRequestFullscreen) el.msRequestFullscreen();
+}
+document.querySelectorAll('.fs-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-target');
+    var det = document.getElementById(id);
+    if(!det) return;
+    var viewer = det.querySelector('.viewer');
+    requestFs(viewer);
+  });
+});
+
+// Reader mode
+(function(){
+  var main = document.querySelector('main');
+  var btn = document.getElementById('toggleRead');
+  if(btn && main){
+    btn.addEventListener('click', function(){
+      main.classList.toggle('reader-on');
+      if(main.classList.contains('reader-on')){
+        var tabs = document.getElementById('tabs');
+        if(tabs) tabs.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  }
+})();
+
+// Progress with stable keys
+(function(){
+  var boxes = Array.from(document.querySelectorAll('input[type=checkbox][data-key]'));
+  var inner = document.getElementById('progressInner');
+  var text = document.getElementById('progressText');
+  function load(){ boxes.forEach(function(b){ var key='progress-'+b.dataset.key; var val=localStorage.getItem(key); b.checked=(val==='1'); b.addEventListener('change', function(){ localStorage.setItem(key, b.checked?'1':'0'); update(); }); }); update(); }
+  function update(){ var done=boxes.filter(function(b){return b.checked;}).length; var total=boxes.length; var pct= total? Math.round(done*100/total):0; inner.style.width=pct+'%'; text.textContent=pct+'% concluído ('+done+'/'+total+' tarefas)'; }
+  document.getElementById('reset').addEventListener('click', function(){ if(confirm('Zerar todas as marcações?')){ boxes.forEach(function(b){localStorage.removeItem('progress-'+b.dataset.key); b.checked=false;}); update(); } });
+  load();
+})();
+
+// Simulados engine with manual gabarito support and robust correction
+(function(){
+  function parseSimpleGab(text){
+    var map = {}; if(!text) return map;
+    text.split(/\n+/).forEach(function(l){
+      var m = l.trim().match(/^(\d{1,3})\s*[-:\.]?\s*([ABCDE])/i);
+      if(m){ map[parseInt(m[1],10)] = m[2].toUpperCase(); }
+    });
+    return map;
+  }
+  function loadStored(prova){
+    try{ return JSON.parse(localStorage.getItem('gab-manual-'+prova) || '{}'); }catch(e){ return {}; }
+  }
+  function storeManual(prova, obj){ localStorage.setItem('gab-manual-'+prova, JSON.stringify(obj)); }
+
+  var dataEl = document.getElementById('gabaritos-data');
+  var data = dataEl ? JSON.parse(dataEl.textContent) : {};
+  var autoGabs = (data && data.gabaritos) ? data.gabaritos : {};
+  var provas = (data && data.provas) ? data.provas : {};
+
+  var simProva = document.getElementById('simProva');
+  // Atualiza prova e refaz o quiz ao trocar o ano
+  simProva.addEventListener('change', function(){
+    loadProva();
+    // Regera o quiz com a quantidade atual (normalmente 40)
+    var q = parseInt(simQtd.value||'40', 10);
+    if(!isNaN(q) && document.getElementById('quizContainer')){
+      quizContainer.innerHTML='';
+      for(var i=1;i<=q;i++){
+        var row = document.createElement('div');
+        row.className = 'qrow';
+        row.style = 'display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap';
+        var num = document.createElement('div');
+        num.textContent = i + '.'; num.style = 'width:28px;font-weight:600';
+        row.appendChild(num);
+        ['A','B','C','D','E'].forEach(function(letter){
+          var lbl = document.createElement('label');
+          lbl.className = 'btn btn-ghost';
+          lbl.style = 'padding:6px 10px;border-radius:999px;margin-right:4px;cursor:pointer';
+          lbl.innerHTML = '<input type="radio" name="sim-q'+i+'" value="'+letter+'" style="margin-right:6px">' + letter;
+          row.appendChild(lbl);
+        });
+        quizContainer.appendChild(row);
+      }
+    }
+    if(simResultado) simResultado.innerHTML='';
+  });
+
+  var simQtd = document.getElementById('simQtd');
+  var simValor = document.getElementById('simValor');
+  var simPen = document.getElementById('simPen');
+  var simGerar = document.getElementById('simGerar');
+  var simCorrigir = document.getElementById('simCorrigir');
+  var simLimpar = document.getElementById('simLimpar');
+  var quizContainer = document.getElementById('quizContainer');
+  var simResultado = document.getElementById('simResultado');
+  var simIframe = document.getElementById('simIframe');
+  var simAbrirPDF = document.getElementById('simAbrirPDF');
+  var simFS = document.getElementById('simFS');
+
+  function loadProva(){
+    var key = simProva.value;
+    var href = provas[key] || '';
+    simIframe.src = href;
+    simAbrirPDF.href = href || '#';
+    updateQtdFromGab();
+  }
+  function currentGab(){
+    var prova = simProva.value;
+    var auto = autoGabs[prova] || {};
+    var manual = loadStored(prova);
+    var merged = Object.assign({}, auto, manual);
+    return {auto:auto, manual:manual, merged:merged};
+  }
+  function updateQtdFromGab(){
+    var g = currentGab().merged;
+    var keys = Object.keys(g).filter(function(k){ return !!g[k]; });
+    if(keys.length >= 5){
+      var maxq = Math.max.apply(null, keys.map(function(k){ return parseInt(k,10); }));
+      simQtd.value = Math.max(simQtd.value, maxq);
+    } else {
+      simQtd.value = 40; // padrão
+    }
+  }
+  function buildQuiz(qtd){
+    quizContainer.innerHTML = '';
+    for(var i=1;i<=qtd;i++){
+      var row = document.createElement('div');
+      row.className = 'qrow';
+      row.style = 'display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap';
+      var num = document.createElement('div');
+      num.textContent = i + '.'; num.style = 'width:28px;font-weight:600';
+      row.appendChild(num);
+      ['A','B','C','D','E'].forEach(function(letter){
+        var lbl = document.createElement('label');
+        lbl.className = 'btn btn-ghost';
+        lbl.style = 'padding:6px 10px;border-radius:999px;margin-right:4px;cursor:pointer';
+        lbl.innerHTML = '<input type="radio" name="sim-q'+i+'" value="'+letter+'" style="margin-right:6px">' + letter;
+        row.appendChild(lbl);
+      });
+      quizContainer.appendChild(row);
+    }
+  }
+  function correct(){
+    var qtd = Math.max(1, Math.min(200, parseInt(simQtd.value||'40',10)));
+    var g = currentGab().merged;
+    var ac=0,er=0,br=0;
+    var val = parseFloat(simValor.value||'1'), pen = parseFloat(simPen.value||'0');
+    for(var i=1;i<=qtd;i++){
+      var sel = document.querySelector('input[name="sim-q'+i+'"]:checked');
+      var r = sel ? sel.value : null;
+      if(!r){ br++; continue; }
+      if(!g[i]){ br++; continue; }
+      if(g[i] === r) ac++; else er++;
+    }
+    var nota = ac*val - er*pen;
+    var pct = Math.round(100*ac/Math.max(1,qtd));
+    simResultado.innerHTML = '<div class="doc" style="background:#f0fff7;border-color:#bbf7d0"><div><strong>Resultado:</strong> '+ac+' acertos, '+er+' erros, '+br+' em branco. Nota: <strong>'+nota.toFixed(2)+'</strong> ('+pct+'%)</div></div>';
+  }
+
+  // Manual gabarito controls
+  var gabTextarea = document.getElementById('simGabManual');
+  var gabAplicar = document.getElementById('simAplicarGabManual');
+  var gabExemplo = document.getElementById('simExemploGabManual');
+  var gabStatus = document.getElementById('simStatusGab');
+
+  function refreshStatus(){
+    var merged = currentGab().merged;
+    var cnt = Object.keys(merged).filter(function(k){return !!merged[k];}).length;
+    if(gabStatus){ gabStatus.textContent = 'Gabarito carregado: ' + cnt + ' questões'; }
+  }
+
+  if(gabAplicar){
+    gabAplicar.addEventListener('click', function(){
+      var prova = simProva.value;
+      var parsed = parseSimpleGab(gabTextarea.value);
+      storeManual(prova, parsed);
+      updateQtdFromGab(); refreshStatus();
+      alert('Gabarito manual aplicado para ' + prova + '.');
+    });
+  }
+  if(gabExemplo){
+    gabExemplo.addEventListener('click', function(){
+      var qtd = Math.max(1, Math.min(200, parseInt(simQtd.value||'40',10)));
+      var arr=[]; var L=['A','B','C','D','E'];
+      for(var i=1;i<=qtd;i++){ arr.push(i+' '+L[(i-1)%5]); }
+      gabTextarea.value = arr.join('\n');
+    });
+  }
+
+  simGerar.addEventListener('click', function(){ buildQuiz(parseInt(simQtd.value||'40',10)); simResultado.innerHTML=''; });
+  simCorrigir.addEventListener('click', correct);
+  simLimpar.addEventListener('click', function(){ document.querySelectorAll('#quizContainer input[type=radio]').forEach(function(r){ r.checked=false; }); simResultado.innerHTML=''; });
+
+  if(simFS){ simFS.addEventListener('change', function(){ var wrap=document.getElementById('simWrap'); if(simFS.checked && wrap.requestFullscreen) wrap.requestFullscreen(); }); }
+
+  // Init
+  loadProva(); refreshStatus();
+})();
+</script>
+</body></html>
